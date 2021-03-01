@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button } from '..';
+import { GlobalContext } from '../../context/GlobalState';
 import { TabsStyle } from './TabsStyle';
 
-const Tabs = ({ options }) => {
-  const [isActive, setIsActive] = useState(null);
+const Tabs = ({ options, defaultOption }) => {
+  const [isActive, setIsActive] = useState(defaultOption || null);
+  const { selectType } = useContext(GlobalContext);
   const handleSelect = (name) => {
-    console.log(name);
     setIsActive(name);
+    selectType(name);
   };
 
   const _options = options.map((item) => {
@@ -14,7 +16,7 @@ const Tabs = ({ options }) => {
     return (
       <Button
         onClick={() => handleSelect(name)}
-        active={name == isActive}
+        active={name === isActive}
         key={name}>
         {name}
       </Button>

@@ -6,6 +6,12 @@ export default (state, action) => {
         type: action.payload,
       };
 
+    case 'SELECT_DESIGN':
+      return {
+        ...state,
+        designType: action.payload,
+      };
+
     default:
       return state;
   }

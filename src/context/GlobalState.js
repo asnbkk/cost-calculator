@@ -2,9 +2,9 @@ import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
 const initialState = {
-  GENERAL_type: 'Business website',
-  E_COMMERCE_designType: 'Custom',
-  E_COMMERCE_languageAmount: '1',
+  GENERAL_type: { name: 'Business website', price: 500 },
+  E_COMMERCE_designType: { name: 'Custom', price: 450 },
+  E_COMMERCE_languageAmount: { name: '1', price: 200 },
 };
 
 export const GlobalContext = createContext(initialState);
@@ -12,24 +12,24 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  function selectType(type) {
+  function selectType(name, price) {
     dispatch({
       type: 'SELECT_TYPE',
-      payload: type,
+      payload: { name, price },
     });
   }
 
-  function setDesignType(design) {
+  function setDesignType(name, price) {
     dispatch({
       type: 'SELECT_DESIGN',
-      payload: design,
+      payload: { name, price },
     });
   }
 
-  function setLanguageAmount(amount) {
+  function setLanguageAmount(name, price) {
     dispatch({
       type: 'SELECT_LANGUAGE_AMOUNT',
-      payload: amount,
+      payload: { name, price },
     });
   }
 

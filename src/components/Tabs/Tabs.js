@@ -3,18 +3,18 @@ import { Button } from '..';
 import { TabsStyle } from './TabsStyle';
 
 const Tabs = ({ options, defaultOption, onSelect }) => {
-  const [isActive, setIsActive] = useState(defaultOption || null);
-  const handleSelect = (name) => {
+  const [isActive, setIsActive] = useState(defaultOption.name || null);
+  const handleSelect = (name, price) => {
     setIsActive(name);
-    onSelect(name);
+    onSelect({ name, price });
   };
 
   const _options = options.map((item) => {
     let name = item.name;
-
+    let price = item.price;
     return (
       <Button
-        onClick={() => handleSelect(name)}
+        onClick={() => handleSelect(name, price)}
         active={name === isActive}
         key={name}>
         {name}

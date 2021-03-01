@@ -1,14 +1,17 @@
 export const AppType = [
-  { name: 'Business website' },
-  { name: 'E-commerce website' },
-  { name: 'Mobile app' },
+  { name: 'Business website', price: 500 },
+  { name: 'E-commerce website', price: 1400 },
+  { name: 'Mobile app', price: 2800 },
 ];
 
-export const DesignType = [{ name: 'Custom' }, { name: 'Template' }];
+export const DesignType = [
+  { name: 'Custom', price: 450 },
+  { name: 'Template', price: 0 },
+];
 
 export const Languages = [
-  { name: '1' },
-  { name: '2' },
-  { name: '3' },
-  { name: 'More' },
+  { name: '1', price: 200 },
+  { name: '2', price: 400 },
+  { name: '3', price: 600 },
+  { name: 'More', price: 800 },
 ];

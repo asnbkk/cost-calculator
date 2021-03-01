@@ -30,7 +30,7 @@ const Calculator = () => {
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
-            setDesignType(designType);
+            setDesignType(designType.name, designType.price);
           }}
         />
         <h3>How many languages will your store have?</h3>
@@ -38,7 +38,7 @@ const Calculator = () => {
           options={Languages}
           defaultOption={languageAmount}
           onSelect={(languageAmount) => {
-            setLanguageAmount(languageAmount);
+            setLanguageAmount(languageAmount.name, languageAmount.price);
           }}
         />
       </>
@@ -51,13 +51,13 @@ const Calculator = () => {
       <Tabs
         options={AppType}
         defaultOption={type}
-        onSelect={(type) => selectType(type)}
+        onSelect={(type) => selectType(type.name, type.price)}
       />
-      {type === 'Business website' && businessWebsite()}
-      {type === 'E-commerce website' && ecommerceWebsite()}
+      {type.name === 'Business website' && businessWebsite()}
+      {type.name === 'E-commerce website' && ecommerceWebsite()}
       <hr />
       <h3>
-        {type}, {designType}, {languageAmount}
+        {type.price}, {designType.price}, {languageAmount.price}
       </h3>
     </CalculatorStyle>
   );

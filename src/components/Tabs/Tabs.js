@@ -11,6 +11,7 @@ const Tabs = ({ options, defaultOption, onSelect }) => {
 
   const _options = options.map((item) => {
     let name = item.name;
+
     return (
       <Button
         onClick={() => handleSelect(name)}

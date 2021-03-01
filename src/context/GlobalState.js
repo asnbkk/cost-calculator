@@ -12,10 +12,10 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  function selectType(name) {
+  function selectType(type) {
     dispatch({
       type: 'SELECT_TYPE',
-      payload: name,
+      payload: type,
     });
   }
 

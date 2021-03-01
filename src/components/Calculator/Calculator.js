@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Tabs } from '..';
+import { Tabs, Total } from '..';
 import { CalculatorStyle } from './CalculatorStyle';
 import { AppType, DesignType, Languages } from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
@@ -59,6 +59,7 @@ const Calculator = () => {
       <h3>
         {type.price}, {designType.price}, {languageAmount.price}
       </h3>
+      <Total />
     </CalculatorStyle>
   );
 };

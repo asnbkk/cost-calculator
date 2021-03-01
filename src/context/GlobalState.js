@@ -36,6 +36,7 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
+        initialState,
         type: state.GENERAL_type,
         selectType,
         designType: state.E_COMMERCE_designType,

@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
 import { Tabs } from '..';
 import { CalculatorStyle } from './CalculatorStyle';
-import { AppType, DesignType } from '../../temp/TabOptions';
+import { AppType, DesignType, Languages } from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
 
 const Calculator = () => {
-  const { type, selectType, designType, setDesignType } = useContext(
-    GlobalContext
-  );
+  const {
+    type,
+    selectType,
+    designType,
+    setDesignType,
+    languageAmount,
+    setLanguageAmount,
+  } = useContext(GlobalContext);
 
   const businessWebsite = () => {
     return (
@@ -28,6 +33,14 @@ const Calculator = () => {
             setDesignType(designType);
           }}
         />
+        <h3>How many languages will your store have?</h3>
+        <Tabs
+          options={Languages}
+          defaultOption={languageAmount}
+          onSelect={(languageAmount) => {
+            setLanguageAmount(languageAmount);
+          }}
+        />
       </>
     );
   };
@@ -44,7 +57,7 @@ const Calculator = () => {
       {type === 'E-commerce website' && ecommerceWebsite()}
       <hr />
       <h3>
-        {type}, {designType}
+        {type}, {designType}, {languageAmount}
       </h3>
     </CalculatorStyle>
   );

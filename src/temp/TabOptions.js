@@ -5,3 +5,10 @@ export const AppType = [
 ];
 
 export const DesignType = [{ name: 'Custom' }, { name: 'Template' }];
+
+export const Languages = [
+  { name: '1' },
+  { name: '2' },
+  { name: '3' },
+  { name: 'More' },
+];

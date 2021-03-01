@@ -3,15 +3,20 @@ export default (state, action) => {
     case 'SELECT_TYPE':
       return {
         ...state,
-        type: action.payload,
+        GENERAL_type: action.payload,
       };
 
     case 'SELECT_DESIGN':
       return {
         ...state,
-        designType: action.payload,
+        E_COMMERCE_designType: action.payload,
       };
 
+    case 'SELECT_LANGUAGE_AMOUNT':
+      return {
+        ...state,
+        E_COMMERCE_languageAmount: action.payload,
+      };
     default:
       return state;
   }

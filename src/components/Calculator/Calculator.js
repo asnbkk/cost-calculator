@@ -8,11 +8,12 @@ const Calculator = () => {
   const {
     type,
     selectType,
-    designType,
     setDesignType,
-    languageAmount,
+    ECW,
     setLanguageAmount,
   } = useContext(GlobalContext);
+
+  console.log(ECW);
 
   const businessWebsite = () => {
     return (
@@ -23,6 +24,8 @@ const Calculator = () => {
   };
 
   const ecommerceWebsite = () => {
+    let designType = ECW.find((o) => o.type === 'designType');
+    let languageAmount = ECW.find((o) => o.type === 'languageAmount');
     return (
       <>
         <h3>Custom design or template?</h3>
@@ -55,10 +58,6 @@ const Calculator = () => {
       />
       {type.name === 'Business website' && businessWebsite()}
       {type.name === 'E-commerce website' && ecommerceWebsite()}
-      <hr />
-      <h3>
-        {type.price}, {designType.price}, {languageAmount.price}
-      </h3>
       <Total />
     </CalculatorStyle>
   );

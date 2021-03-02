@@ -1,3 +1,5 @@
+import { act } from 'react-dom/test-utils';
+
 export default (state, action) => {
   switch (action.type) {
     case 'SELECT_TYPE':
@@ -9,13 +11,19 @@ export default (state, action) => {
     case 'SELECT_DESIGN':
       return {
         ...state,
-        EWC: [],
+        ECW: [
+          ...state.ECW.filter((o) => o.type !== 'designType'),
+          action.payload,
+        ],
       };
 
     case 'SELECT_LANGUAGE_AMOUNT':
       return {
         ...state,
-        ECW_languageAmount: action.payload,
+        ECW: [
+          ...state.ECW.filter((o) => o.type !== 'languageAmount'),
+          action.payload,
+        ],
       };
     default:
       return state;

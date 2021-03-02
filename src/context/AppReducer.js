@@ -9,7 +9,7 @@ export default (state, action) => {
     case 'SELECT_DESIGN':
       return {
         ...state,
-        ECW_designType: action.payload,
+        EWC: [],
       };
 
     case 'SELECT_LANGUAGE_AMOUNT':

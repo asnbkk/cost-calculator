@@ -3,8 +3,12 @@ import AppReducer from './AppReducer';
 
 const initialState = {
   GENERAL_type: { name: 'Business website', price: 500, code: 'BW' },
-  ECW_designType: { name: 'Custom', price: 450 },
-  ECW_languageAmount: { name: '1', price: 200 },
+  // ECW_designType: { name: 'Custom', price: 450 },
+  // ECW_languageAmount: { name: '1', price: 200 },
+  EWC: [
+    { type: 'designType', name: 'Custom', price: 450 },
+    { type: 'languageAmount', name: '1', price: 200 },
+  ],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -22,7 +26,7 @@ export const GlobalProvider = ({ children }) => {
   function setDesignType(name, price) {
     dispatch({
       type: 'SELECT_DESIGN',
-      payload: { name, price },
+      payload: { type: 'languageType', name, price },
     });
   }
 
@@ -38,9 +42,10 @@ export const GlobalProvider = ({ children }) => {
       value={{
         type: state.GENERAL_type,
         selectType,
-        designType: state.ECW_designType,
+        // designType: state.ECW_designType,
+        EWC: state.EWC,
         setDesignType,
-        languageAmount: state.ECW_languageAmount,
+        // languageAmount: state.ECW_languageAmount,
         setLanguageAmount,
       }}>
       {children}

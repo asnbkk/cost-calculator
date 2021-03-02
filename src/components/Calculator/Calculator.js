@@ -51,7 +51,7 @@ const Calculator = () => {
       <Tabs
         options={AppType}
         defaultOption={type}
-        onSelect={(type) => selectType(type.name, type.price)}
+        onSelect={(type) => selectType(type.name, type.price, type.code)}
       />
       {type.name === 'Business website' && businessWebsite()}
       {type.name === 'E-commerce website' && ecommerceWebsite()}

@@ -1,7 +1,7 @@
 export const AppType = [
-  { name: 'Business website', price: 500 },
-  { name: 'E-commerce website', price: 1400 },
-  { name: 'Mobile app', price: 2800 },
+  { name: 'Business website', price: 500, code: 'BW' },
+  { name: 'E-commerce website', price: 1400, code: 'ECW' },
+  { name: 'Mobile app', price: 2800, code: 'MA' },
 ];
 
 export const DesignType = [

@@ -9,13 +9,13 @@ export default (state, action) => {
     case 'SELECT_DESIGN':
       return {
         ...state,
-        E_COMMERCE_designType: action.payload,
+        ECW_designType: action.payload,
       };
 
     case 'SELECT_LANGUAGE_AMOUNT':
       return {
         ...state,
-        E_COMMERCE_languageAmount: action.payload,
+        ECW_languageAmount: action.payload,
       };
     default:
       return state;

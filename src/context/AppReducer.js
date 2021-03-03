@@ -19,6 +19,16 @@ const Reducer = (state, action) => {
         ],
       };
 
+    case 'BW_PURPOSE':
+    case 'BW_DESIGN':
+      return {
+        ...state,
+        BW: [
+          ...state.ECW.filter((o) => o.type !== action.payload.type),
+          action.payload,
+        ],
+      };
+
     default:
       return state;
   }

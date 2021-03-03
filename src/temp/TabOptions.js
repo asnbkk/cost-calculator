@@ -31,3 +31,9 @@ export const Payments = [
   { name: 'Yes', price: 3000 },
   { name: 'No', price: 0 },
 ];
+
+export const Purpose = [
+  { name: 'Build trust', price: 200 },
+  { name: 'Reach audience', price: 500 },
+  { name: 'Generate leads and sales', price: 700 },
+];

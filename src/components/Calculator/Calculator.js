@@ -8,16 +8,34 @@ import {
   StockUnits,
   Registration,
   Payments,
+  Purpose,
 } from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
 
 const Calculator = () => {
-  const { type, ECW, selectType, setState } = useContext(GlobalContext);
+  const { type, ECW, BW, selectType, setState } = useContext(GlobalContext);
 
   const businessWebsite = () => {
+    let purpose = BW.find((o) => o.type === 'BW_PURPOSE');
+    let designType = BW.find((o) => o.type === 'BW_DESIGN');
     return (
       <>
         <h3>What is the purpose of the website?</h3>
+        <Tabs
+          options={Purpose}
+          defaultOption={purpose}
+          onSelect={(purpose) => {
+            setState(purpose.name, purpose.price, 'BW_PURPOSE');
+          }}
+        />
+        {/* <h3>Custom design or a template?</h3>
+        <Tabs
+          options={DesignType}
+          defaultOption={designType}
+          onSelect={(designType) => {
+            setState(designType.name, designType.price, 'BW_DESIGN');
+          }}
+        /> */}
       </>
     );
   };

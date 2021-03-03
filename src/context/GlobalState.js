@@ -10,7 +10,10 @@ const initialState = {
     { type: 'ECW_REGISTRATION', name: 'No', price: 0 },
     { type: 'ECW_PAYMENTS', name: 'No', price: 0 },
   ],
-  BW: [],
+  BW: [
+    { type: 'BW_PURPOSE', name: 'Build trust', price: 200 },
+    { type: 'BW_DESIGN', name: 'Custom', price: 450 },
+  ],
   MA: [],
 };
 

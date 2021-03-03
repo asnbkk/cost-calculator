@@ -58,6 +58,7 @@ const Calculator = () => {
         />
         <h3>Do you need user registration?</h3>
         <Tabs
+          toggle
           options={Registration}
           defaultOption={registration}
           onSelect={(registration) => {

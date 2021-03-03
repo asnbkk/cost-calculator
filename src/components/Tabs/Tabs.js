@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from '..';
-import { TabsStyle } from './TabsStyle';
+import { TabsStyle, ToggleTabStyle } from './TabsStyle';
 
-const Tabs = ({ options, defaultOption, onSelect }) => {
+const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
   const [isActive, setIsActive] = useState(defaultOption.name || null);
   const handleSelect = (name, price, code) => {
     setIsActive(name);
@@ -23,7 +23,11 @@ const Tabs = ({ options, defaultOption, onSelect }) => {
     );
   });
 
-  return <TabsStyle>{_options}</TabsStyle>;
+  return !toggle ? (
+    <TabsStyle>{_options}</TabsStyle>
+  ) : (
+    <ToggleTabStyle>toggle</ToggleTabStyle>
+  );
 };
 
 export default Tabs;

@@ -13,8 +13,6 @@ const Calculator = () => {
     setLanguageAmount,
   } = useContext(GlobalContext);
 
-  console.log(ECW);
-
   const businessWebsite = () => {
     return (
       <>

@@ -7,6 +7,8 @@ const initialState = {
     { type: 'designType', name: 'Custom', price: 450 },
     { type: 'languageAmount', name: '1', price: 200 },
   ],
+  BW: [],
+  MA: [],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -39,8 +41,10 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         type: state.GENERAL_type,
-        selectType,
         ECW: state.ECW,
+        BW: state.BW,
+        MA: state.MA,
+        selectType,
         setDesignType,
         setLanguageAmount,
       }}>

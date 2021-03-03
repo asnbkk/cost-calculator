@@ -15,3 +15,14 @@ export const Languages = [
   { name: '3', price: 600 },
   { name: 'More', price: 800 },
 ];
+
+export const StockUnits = [
+  { name: '1-1000', price: 700 },
+  { name: '1000-10000', price: 1500 },
+  { name: '10000+', price: 2000 },
+];
+
+export const Registration = [
+  { name: 'Yes', price: 1500 },
+  { name: 'No', price: 0 },
+];

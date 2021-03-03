@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { Tabs, Total } from '..';
 import { CalculatorStyle } from './CalculatorStyle';
-import { AppType, DesignType, Languages } from '../../temp/TabOptions';
+import {
+  AppType,
+  DesignType,
+  Languages,
+  StockUnits,
+  Registration,
+} from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
 
 const Calculator = () => {
-  const {
-    type,
-    selectType,
-    setDesignType,
-    ECW,
-    setLanguageAmount,
-  } = useContext(GlobalContext);
+  const { type, ECW, selectType, setState } = useContext(GlobalContext);
 
   const businessWebsite = () => {
     return (
@@ -22,8 +22,10 @@ const Calculator = () => {
   };
 
   const ecommerceWebsite = () => {
-    let designType = ECW.find((o) => o.type === 'designType');
-    let languageAmount = ECW.find((o) => o.type === 'languageAmount');
+    let designType = ECW.find((o) => o.type === 'DESIGN');
+    let languageAmount = ECW.find((o) => o.type === 'LANGUAGE_AMOUNT');
+    let stockUnits = ECW.find((o) => o.type === 'STOCK_UNITS_AMOUNT');
+    let registration = ECW.find((o) => o.type === 'REGISTRATION');
     return (
       <>
         <h3>Custom design or template?</h3>
@@ -31,7 +33,7 @@ const Calculator = () => {
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
-            setDesignType(designType.name, designType.price);
+            setState(designType.name, designType.price, 'DESIGN');
           }}
         />
         <h3>How many languages will your store have?</h3>
@@ -39,7 +41,27 @@ const Calculator = () => {
           options={Languages}
           defaultOption={languageAmount}
           onSelect={(languageAmount) => {
-            setLanguageAmount(languageAmount.name, languageAmount.price);
+            setState(
+              languageAmount.name,
+              languageAmount.price,
+              'LANGUAGE_AMOUNT'
+            );
+          }}
+        />
+        <h3>How many stock units do you plan to sell?</h3>
+        <Tabs
+          options={StockUnits}
+          defaultOption={stockUnits}
+          onSelect={(stockUnits) => {
+            setState(stockUnits.name, stockUnits.price, 'STOCK_UNITS_AMOUNT');
+          }}
+        />
+        <h3>Do you need user registration?</h3>
+        <Tabs
+          options={Registration}
+          defaultOption={registration}
+          onSelect={(registration) => {
+            setState(registration.name, registration.price, 'REGISTRATION');
           }}
         />
       </>

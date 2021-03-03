@@ -1,31 +1,35 @@
-import { act } from 'react-dom/test-utils';
-
-export default (state, action) => {
+const Reducer = (state, action) => {
   switch (action.type) {
     case 'SELECT_TYPE':
       return {
         ...state,
-        GENERAL_type: action.payload,
+        GENERAL: action.payload,
       };
 
-    case 'SELECT_DESIGN':
+    case 'DESIGN':
+    case 'LANGUAGE_AMOUNT':
+    case 'STOCK_UNITS_AMOUNT':
+    case 'REGISTRATION':
       return {
         ...state,
         ECW: [
-          ...state.ECW.filter((o) => o.type !== 'designType'),
+          ...state.ECW.filter((o) => o.type !== action.payload.type),
           action.payload,
         ],
       };
 
-    case 'SELECT_LANGUAGE_AMOUNT':
-      return {
-        ...state,
-        ECW: [
-          ...state.ECW.filter((o) => o.type !== 'languageAmount'),
-          action.payload,
-        ],
-      };
+    // case 'LANGUAGE_AMOUNT':
+    //   return {
+    //     ...state,
+    //     ECW: [
+    //       ...state.ECW.filter((o) => o.type !== action.payload.type),
+    //       action.payload,
+    //     ],
+    //   };
+
     default:
       return state;
   }
 };
+
+export default Reducer;

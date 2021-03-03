@@ -2,10 +2,12 @@ import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
 const initialState = {
-  GENERAL_type: { name: 'Business website', price: 500, code: 'BW' },
+  GENERAL: { name: 'Business website', price: 500, code: 'BW' },
   ECW: [
-    { type: 'designType', name: 'Custom', price: 450 },
-    { type: 'languageAmount', name: '1', price: 200 },
+    { type: 'DESIGN', name: 'Custom', price: 450 },
+    { type: 'LANGUAGE_AMOUNT', name: '1', price: 200 },
+    { type: 'STOCK_UNITS_AMOUNT', name: '1-1000', price: 700 },
+    { type: 'REGISTRATION', name: 'No', price: 0 },
   ],
   BW: [],
   MA: [],
@@ -23,30 +25,22 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function setDesignType(name, price) {
+  function setState(name, price, type) {
     dispatch({
-      type: 'SELECT_DESIGN',
-      payload: { type: 'designType', name, price },
-    });
-  }
-
-  function setLanguageAmount(name, price) {
-    dispatch({
-      type: 'SELECT_LANGUAGE_AMOUNT',
-      payload: { type: 'languageAmount', name, price },
+      type,
+      payload: { type, name, price },
     });
   }
 
   return (
     <GlobalContext.Provider
       value={{
-        type: state.GENERAL_type,
+        type: state.GENERAL,
         ECW: state.ECW,
         BW: state.BW,
         MA: state.MA,
         selectType,
-        setDesignType,
-        setLanguageAmount,
+        setState,
       }}>
       {children}
     </GlobalContext.Provider>

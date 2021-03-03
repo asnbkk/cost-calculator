@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '..';
-import { TabsStyle, ToggleTabStyle } from './TabsStyle';
+import { TabsStyle, ToggleTabStyle, ToggleStyle } from './TabsStyle';
 
 const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
   const [isActive, setIsActive] = useState(defaultOption.name || null);
@@ -9,7 +9,7 @@ const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
     onSelect({ name, price, code });
   };
 
-  const _options = options.map((item) => {
+  const _defaultOptions = options.map((item) => {
     let name = item.name;
     let price = item.price;
     let code = item.code;
@@ -23,10 +23,23 @@ const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
     );
   });
 
+  const _toggleOptions = options.map((item) => {
+    let name = item.name;
+    let price = item.price;
+    return (
+      <ToggleStyle
+        active={name === isActive}
+        onClick={() => handleSelect(name, price)}
+        key={name}>
+        {name}
+      </ToggleStyle>
+    );
+  });
+
   return !toggle ? (
-    <TabsStyle>{_options}</TabsStyle>
+    <TabsStyle>{_defaultOptions}</TabsStyle>
   ) : (
-    <ToggleTabStyle>toggle</ToggleTabStyle>
+    <ToggleTabStyle>{_toggleOptions}</ToggleTabStyle>
   );
 };
 

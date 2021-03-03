@@ -26,3 +26,8 @@ export const Registration = [
   { name: 'Yes', price: 1500 },
   { name: 'No', price: 0 },
 ];
+
+export const Payments = [
+  { name: 'Yes', price: 3000 },
+  { name: 'No', price: 0 },
+];

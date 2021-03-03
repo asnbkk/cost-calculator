@@ -7,6 +7,7 @@ import {
   Languages,
   StockUnits,
   Registration,
+  Payments,
 } from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
 
@@ -22,10 +23,11 @@ const Calculator = () => {
   };
 
   const ecommerceWebsite = () => {
-    let designType = ECW.find((o) => o.type === 'DESIGN');
-    let languageAmount = ECW.find((o) => o.type === 'LANGUAGE_AMOUNT');
-    let stockUnits = ECW.find((o) => o.type === 'STOCK_UNITS_AMOUNT');
-    let registration = ECW.find((o) => o.type === 'REGISTRATION');
+    let designType = ECW.find((o) => o.type === 'ECW_DESIGN');
+    let languageAmount = ECW.find((o) => o.type === 'ECW_LANGUAGE_AMOUNT');
+    let stockUnits = ECW.find((o) => o.type === 'ECW_STOCK_UNITS_AMOUNT');
+    let registration = ECW.find((o) => o.type === 'ECW_REGISTRATION');
+    let payments = ECW.find((o) => o.type === 'ECW_PAYMENTS');
     return (
       <>
         <h3>Custom design or template?</h3>
@@ -33,7 +35,7 @@ const Calculator = () => {
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
-            setState(designType.name, designType.price, 'DESIGN');
+            setState(designType.name, designType.price, 'ECW_DESIGN');
           }}
         />
         <h3>How many languages will your store have?</h3>
@@ -44,7 +46,7 @@ const Calculator = () => {
             setState(
               languageAmount.name,
               languageAmount.price,
-              'LANGUAGE_AMOUNT'
+              'ECW_LANGUAGE_AMOUNT'
             );
           }}
         />
@@ -53,7 +55,11 @@ const Calculator = () => {
           options={StockUnits}
           defaultOption={stockUnits}
           onSelect={(stockUnits) => {
-            setState(stockUnits.name, stockUnits.price, 'STOCK_UNITS_AMOUNT');
+            setState(
+              stockUnits.name,
+              stockUnits.price,
+              'ECW_STOCK_UNITS_AMOUNT'
+            );
           }}
         />
         <h3>Do you need user registration?</h3>
@@ -62,7 +68,16 @@ const Calculator = () => {
           options={Registration}
           defaultOption={registration}
           onSelect={(registration) => {
-            setState(registration.name, registration.price, 'REGISTRATION');
+            setState(registration.name, registration.price, 'ECW_REGISTRATION');
+          }}
+        />
+        <h3>Will you be accepting payments?</h3>
+        <Tabs
+          toggle
+          options={Payments}
+          defaultOption={payments}
+          onSelect={(payments) => {
+            setState(payments.name, payments.price, 'ECW_PAYMENTS');
           }}
         />
       </>

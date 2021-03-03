@@ -6,10 +6,11 @@ const Reducer = (state, action) => {
         GENERAL: action.payload,
       };
 
-    case 'DESIGN':
-    case 'LANGUAGE_AMOUNT':
-    case 'STOCK_UNITS_AMOUNT':
-    case 'REGISTRATION':
+    case 'ECW_DESIGN':
+    case 'ECW_LANGUAGE_AMOUNT':
+    case 'ECW_STOCK_UNITS_AMOUNT':
+    case 'ECW_REGISTRATION':
+    case 'ECW_PAYMENTS':
       return {
         ...state,
         ECW: [
@@ -17,15 +18,6 @@ const Reducer = (state, action) => {
           action.payload,
         ],
       };
-
-    // case 'LANGUAGE_AMOUNT':
-    //   return {
-    //     ...state,
-    //     ECW: [
-    //       ...state.ECW.filter((o) => o.type !== action.payload.type),
-    //       action.payload,
-    //     ],
-    //   };
 
     default:
       return state;

@@ -4,10 +4,11 @@ import AppReducer from './AppReducer';
 const initialState = {
   GENERAL: { name: 'Business website', price: 500, code: 'BW' },
   ECW: [
-    { type: 'DESIGN', name: 'Custom', price: 450 },
-    { type: 'LANGUAGE_AMOUNT', name: '1', price: 200 },
-    { type: 'STOCK_UNITS_AMOUNT', name: '1-1000', price: 700 },
-    { type: 'REGISTRATION', name: 'No', price: 0 },
+    { type: 'ECW_DESIGN', name: 'Custom', price: 450 },
+    { type: 'ECW_LANGUAGE_AMOUNT', name: '1', price: 200 },
+    { type: 'ECW_STOCK_UNITS_AMOUNT', name: '1-1000', price: 700 },
+    { type: 'ECW_REGISTRATION', name: 'No', price: 0 },
+    { type: 'ECW_PAYMENTS', name: 'No', price: 0 },
   ],
   BW: [],
   MA: [],

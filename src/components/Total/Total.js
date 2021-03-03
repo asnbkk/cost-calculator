@@ -8,7 +8,8 @@ const Total = () => {
   let amount = common[_type.code].map((item) => {
     return item.price;
   });
-  return <TotalStyle>{amount}</TotalStyle>;
+  const total = amount.reduce((acc, item) => (acc += item), 0);
+  return <TotalStyle>Total: {total}</TotalStyle>;
 };
 
 export default Total;

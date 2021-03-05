@@ -113,6 +113,10 @@ const Calculator = () => {
     );
   };
 
+  const mobileApp = () => {
+    return true;
+  };
+
   return (
     <CalculatorStyle>
       <h3>What are you working on?</h3>
@@ -123,6 +127,7 @@ const Calculator = () => {
       />
       {type.name === 'Business website' && businessWebsite()}
       {type.name === 'E-commerce website' && ecommerceWebsite()}
+      {type.name === 'Mobile App' && mobileApp()}
       <Total />
     </CalculatorStyle>
   );

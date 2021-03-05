@@ -4,18 +4,19 @@ import { TabsStyle, ToggleTabStyle, ToggleStyle } from './TabsStyle';
 
 const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
   const [isActive, setIsActive] = useState(defaultOption.name || null);
-  const handleSelect = (name, price, code) => {
+  const handleSelect = (name, description, price, code) => {
     setIsActive(name);
-    onSelect({ name, price, code });
+    onSelect({ name, description, price, code });
   };
 
   const _defaultOptions = options.map((item) => {
     let name = item.name;
     let price = item.price;
     let code = item.code;
+    let description = item.description;
     return (
       <Button
-        onClick={() => handleSelect(name, price, code)}
+        onClick={() => handleSelect(name, description, price, code)}
         active={name === isActive}
         key={name}>
         {name}
@@ -26,10 +27,11 @@ const Tabs = ({ options, defaultOption, onSelect, toggle }) => {
   const _toggleOptions = options.map((item) => {
     let name = item.name;
     let price = item.price;
+    let description = item.description;
     return (
       <ToggleStyle
         active={name === isActive}
-        onClick={() => handleSelect(name, price)}
+        onClick={() => handleSelect(name, description, price)}
         key={name}>
         {name}
       </ToggleStyle>

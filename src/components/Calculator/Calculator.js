@@ -27,7 +27,12 @@ const Calculator = () => {
           options={Purpose}
           defaultOption={purpose}
           onSelect={(purpose) => {
-            setState(purpose.name, purpose.price, 'BW_PURPOSE');
+            setState(
+              purpose.name,
+              purpose.description,
+              purpose.price,
+              'BW_PURPOSE'
+            );
           }}
         />
         <h3>Custom design or a template?</h3>
@@ -35,7 +40,12 @@ const Calculator = () => {
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
-            setState(designType.name, designType.price, 'BW_DESIGN');
+            setState(
+              designType.name,
+              designType.description,
+              designType.price,
+              'BW_DESIGN'
+            );
           }}
         />
         <h3>Do you need help with branding?</h3>
@@ -44,7 +54,12 @@ const Calculator = () => {
           options={Branding}
           defaultOption={branding}
           onSelect={(branding) => {
-            setState(branding.name, branding.price, 'BW_BRANDING');
+            setState(
+              branding.name,
+              branding.description,
+              branding.price,
+              'BW_BRANDING'
+            );
           }}
         />
       </>
@@ -64,7 +79,12 @@ const Calculator = () => {
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
-            setState(designType.name, designType.price, 'ECW_DESIGN');
+            setState(
+              designType.name,
+              designType.description,
+              designType.price,
+              'ECW_DESIGN'
+            );
           }}
         />
         <h3>How many languages will your store have?</h3>
@@ -74,6 +94,7 @@ const Calculator = () => {
           onSelect={(languageAmount) => {
             setState(
               languageAmount.name,
+              languageAmount.description,
               languageAmount.price,
               'ECW_LANGUAGE_AMOUNT'
             );
@@ -86,6 +107,7 @@ const Calculator = () => {
           onSelect={(stockUnits) => {
             setState(
               stockUnits.name,
+              stockUnits.description,
               stockUnits.price,
               'ECW_STOCK_UNITS_AMOUNT'
             );
@@ -97,7 +119,12 @@ const Calculator = () => {
           options={Registration}
           defaultOption={registration}
           onSelect={(registration) => {
-            setState(registration.name, registration.price, 'ECW_REGISTRATION');
+            setState(
+              registration.name,
+              registration.description,
+              registration.price,
+              'ECW_REGISTRATION'
+            );
           }}
         />
         <h3>Will you be accepting payments?</h3>
@@ -106,7 +133,12 @@ const Calculator = () => {
           options={Payments}
           defaultOption={payments}
           onSelect={(payments) => {
-            setState(payments.name, payments.price, 'ECW_PAYMENTS');
+            setState(
+              payments.name,
+              payments.description,
+              payments.price,
+              'ECW_PAYMENTS'
+            );
           }}
         />
       </>
@@ -123,7 +155,9 @@ const Calculator = () => {
       <Tabs
         options={AppType}
         defaultOption={type}
-        onSelect={(type) => selectType(type.name, type.price, type.code)}
+        onSelect={(type) =>
+          selectType(type.name, type.description, type.price, type.code)
+        }
       />
       {type.name === 'Business website' && businessWebsite()}
       {type.name === 'E-commerce website' && ecommerceWebsite()}

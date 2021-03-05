@@ -13,15 +13,18 @@ const Total = () => {
   const _amount = common[_type.code].map((item, index) => {
     return (
       <CostItem key={index}>
-        <div>{item.name}</div>
+        <div>{item.description}</div>
         {item.price}
       </CostItem>
     );
   });
+
+  console.log(common[_type.code]);
+
   return (
     <TotalStyle>
       <CostItem>
-        <div>{_type.name}</div>
+        <div>{_type.description}</div>
         {_type.price}
       </CostItem>
       {_amount}

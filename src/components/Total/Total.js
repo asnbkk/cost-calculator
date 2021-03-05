@@ -8,7 +8,6 @@ const Total = () => {
   let amount = common[_type.code].map((item) => {
     return item.price;
   });
-  console.log(common);
   const total = amount.reduce((acc, item) => (acc += item), +_type.price);
   // temp
   const _amount = common[_type.code].map((item) => {
@@ -21,6 +20,7 @@ const Total = () => {
   return (
     <TotalStyle>
       Total: {total}
+      <hr />
       {_amount}
       {_type.name} - {_type.price}
     </TotalStyle>

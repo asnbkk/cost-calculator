@@ -37,3 +37,8 @@ export const Purpose = [
   { name: 'Reach audience', price: 500 },
   { name: 'Generate leads and sales', price: 700 },
 ];
+
+export const Branding = [
+  { name: 'Yes', price: 1500 },
+  { name: 'No', price: 0 },
+];

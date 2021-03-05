@@ -21,6 +21,7 @@ const Reducer = (state, action) => {
 
     case 'BW_PURPOSE':
     case 'BW_DESIGN':
+    case 'BW_BRANDING':
       return {
         ...state,
         BW: [

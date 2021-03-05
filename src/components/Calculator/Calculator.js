@@ -9,6 +9,7 @@ import {
   Registration,
   Payments,
   Purpose,
+  Branding,
 } from '../../temp/TabOptions';
 import { GlobalContext } from '../../context/GlobalState';
 
@@ -17,7 +18,8 @@ const Calculator = () => {
 
   const businessWebsite = () => {
     let purpose = BW.find((o) => o.type === 'BW_PURPOSE');
-    // let designType = BW.find((o) => o.type === 'BW_DESIGN');
+    let designType = BW.find((o) => o.type === 'BW_DESIGN');
+    let branding = BW.find((o) => o.type === 'BW_BRANDING');
     return (
       <>
         <h3>What is the purpose of the website?</h3>
@@ -28,14 +30,23 @@ const Calculator = () => {
             setState(purpose.name, purpose.price, 'BW_PURPOSE');
           }}
         />
-        {/* <h3>Custom design or a template?</h3>
+        <h3>Custom design or a template?</h3>
         <Tabs
           options={DesignType}
           defaultOption={designType}
           onSelect={(designType) => {
             setState(designType.name, designType.price, 'BW_DESIGN');
           }}
-        /> */}
+        />
+        <h3>Do you need help with branding?</h3>
+        <Tabs
+          toggle
+          options={Branding}
+          defaultOption={branding}
+          onSelect={(branding) => {
+            setState(branding.name, branding.price, 'BW_BRANDING');
+          }}
+        />
       </>
     );
   };

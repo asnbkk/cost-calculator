@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TotalStyle } from './TotalStyle';
+import { TotalStyle, CostItem } from './TotalStyle';
 import { GlobalContext } from '../../context/GlobalState';
 
 const Total = () => {
@@ -10,19 +10,22 @@ const Total = () => {
   });
   const total = amount.reduce((acc, item) => (acc += item), +_type.price);
   // temp
-  const _amount = common[_type.code].map((item) => {
+  const _amount = common[_type.code].map((item, index) => {
     return (
-      <p>
-        {item.name} - {item.price}
-      </p>
+      <CostItem key={index}>
+        <div>{item.name}</div>
+        {item.price}
+      </CostItem>
     );
   });
   return (
     <TotalStyle>
-      Total: {total}
-      <hr />
+      <CostItem>
+        <div>{_type.name}</div>
+        {_type.price}
+      </CostItem>
       {_amount}
-      {_type.name} - {_type.price}
+      <h1>Total: {total}</h1>
     </TotalStyle>
   );
 };

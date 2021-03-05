@@ -17,7 +17,7 @@ const Calculator = () => {
 
   const businessWebsite = () => {
     let purpose = BW.find((o) => o.type === 'BW_PURPOSE');
-    let designType = BW.find((o) => o.type === 'BW_DESIGN');
+    // let designType = BW.find((o) => o.type === 'BW_DESIGN');
     return (
       <>
         <h3>What is the purpose of the website?</h3>

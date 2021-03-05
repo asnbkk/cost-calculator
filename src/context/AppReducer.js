@@ -24,7 +24,7 @@ const Reducer = (state, action) => {
       return {
         ...state,
         BW: [
-          ...state.ECW.filter((o) => o.type !== action.payload.type),
+          ...state.BW.filter((o) => o.type !== action.payload.type),
           action.payload,
         ],
       };

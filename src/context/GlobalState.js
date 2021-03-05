@@ -12,7 +12,7 @@ const initialState = {
   ],
   BW: [
     { type: 'BW_PURPOSE', name: 'Build trust', price: 200 },
-    { type: 'BW_DESIGN', name: 'Custom', price: 450 },
+    // { type: 'BW_DESIGN', name: 'Custom', price: 450 },
   ],
   MA: [],
 };
